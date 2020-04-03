@@ -1,0 +1,59 @@
+{
+  "name": "back-end-assigment",
+  "version": "1.1.1",
+  "description": "Altran backend assigment",
+  "main": "index.js",
+  "private": true,
+  "engines": {
+    "node": ">=7.6.0"
+  },
+  "scripts": {
+    "start": "cross-env NODE_PATH=. NODE_ENV=development nodemon",
+    "test": "npm run test:all",
+    "test:all": "npm run test:unit && npm run test:features",
+    "test:unit": "cross-env NODE_PATH=. NODE_ENV=test mocha --opts test/mocha.opts.unit",
+    "test:features": "cross-env NODE_PATH=. NODE_ENV=test mocha --opts test/mocha.opts.features"
+  },
+  "repository": {},
+  "author": "Nicolas <nicourruty@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "awilix": "^3.0.9",
+    "awilix-express": "^0.11.0",
+    "axios": "^0.19.2",
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.17.1",
+    "compression": "^1.6.2",
+    "cors": "^2.8.1",
+    "cross-env": "^7.0.2",
+    "del": "^2.2.2",
+    "dotenv": "^4.0.0",
+    "eslint": "^4.7.2",
+    "express": "^4.17.1",
+    "express-jwt": "^5.3.1",
+    "express-jwt-permissions": "^1.3.3",
+    "express-status-monitor": "^0.1.9",
+    "http-status": "^1.0.1",
+    "https": "^1.0.0",
+    "log4js": "^1.1.1",
+    "method-override": "^2.3.7",
+    "morgan": "^1.8.1",
+    "sequelize": "^3.30.4",
+    "structure": "^2.0.0-alpha.2",
+    "uuid": "^7.0.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-change": "^2.1.2",
+    "chance": "^1.0.6",
+    "dirty-chai": "^2.0.1",
+    "factory-girl": "^4.0.0",
+    "listr": "^0.11.0",
+    "mocha": "^7.1.1",
+    "nodemon": "^1.11.0",
+    "nyc": "^11.2.1",
+    "replace-in-file": "^2.5.0",
+    "supertest": "^3.0.0",
+    "supertest-as-promised": "^4.0.2"
+  }
+}
