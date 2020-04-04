@@ -1,32 +1,55 @@
 const { expect } = require('chai');
 const GetUserByIdService = require('src/app/user/GetUserByIdService');
+const User = require('src/domain/user/User');
 
 describe('App :: User :: GetUserByIdService', () => {
   let getUserByIdService;
 
   context('when user exists', () => {
-    beforeEach(() => {
-      const MockUsersRepository = {
-        getById: (userId) => Promise.resolve({
-          id: userId,
-          name: 'The User'
-        })
-      };
-
-      getUserByIdService = new GetUserByIdService({
-        usersRepository: MockUsersRepository
+    context('when user is authorized', () => {
+      beforeEach(() => {
+        const MockUsersRepository = {
+          getById: (userId) => Promise.resolve(new User({id: userId, name: 'The User', role: 'admin'}))
+        };
+  
+        getUserByIdService = new GetUserByIdService({
+          usersRepository: MockUsersRepository
+        });
+      });
+  
+      it('emits SUCCESS with the user', (done) => {
+        getUserByIdService.on(getUserByIdService.outputs.SUCCESS, (user) => {
+          expect(user.id).to.equal('abc');
+          expect(user.name).to.equal('The User');
+          done();
+        });
+  
+        getUserByIdService.execute('abc', ['admin', 'user']);
       });
     });
 
-    it('emits SUCCESS with the user', (done) => {
-      getUserByIdService.on(getUserByIdService.outputs.SUCCESS, (user) => {
-        expect(user.id).to.equal('abc');
-        expect(user.name).to.equal('The User');
-        done();
+    context('when user is unathorized', () => {
+      beforeEach(() => {
+        const MockUsersRepository = {
+          getById: (userId) => Promise.resolve(new User({id: userId, name: 'The User', role: 'user'}))
+        };
+  
+        getUserByIdService = new GetUserByIdService({
+          usersRepository: MockUsersRepository
+        });
       });
 
-      getUserByIdService.execute('abc');
+      it('emits UNAUTHORIZED', (done) => {
+        getUserByIdService.on(getUserByIdService.outputs.UNAUTHORIZED, (error) => {
+          expect(error.details).to.equal('Unauthorized to access this resource');
+          done();
+        });
+  
+        getUserByIdService.execute('abc', ['admin']);
+      });
+
     });
+    
   });
 
   context('when user does not exist', () => {
@@ -48,7 +71,7 @@ describe('App :: User :: GetUserByIdService', () => {
         done();
       });
 
-      getUserByIdService.execute('abc');
+      getUserByIdService.execute('abc', ['admin']);
     });
   });
 });

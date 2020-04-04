@@ -1,32 +1,54 @@
 const { expect } = require('chai');
 const GetUserByNameService = require('src/app/user/GetUserByNameService');
+const User = require('src/domain/user/User');
 
 describe('App :: User :: GetUserByNameService', () => {
   let getUserByNameService;
 
   context('when user exists', () => {
-    beforeEach(() => {
-      const MockUsersRepository = {
-        getByName: (userName) => Promise.resolve({
-          id: 'abc',
-          name: userName
-        })
-      };
-
-      getUserByNameService = new GetUserByNameService({
-        usersRepository: MockUsersRepository
+    context('when is authorized', () => {
+      beforeEach(() => {
+        const MockUsersRepository = {
+          getByName: (userName) =>  Promise.resolve(new User({id: 'abc', name: userName, role: 'user'}))
+        };
+  
+        getUserByNameService = new GetUserByNameService({
+          usersRepository: MockUsersRepository
+        });
+      });
+  
+      it('emits SUCCESS with the user', (done) => {
+        getUserByNameService.on(getUserByNameService.outputs.SUCCESS, (user) => {
+          expect(user.id).to.equal('abc');
+          expect(user.name).to.equal('The User');
+          done();
+        });
+  
+        getUserByNameService.execute('The User', ['admin', 'user']);
       });
     });
 
-    it('emits SUCCESS with the user', (done) => {
-      getUserByNameService.on(getUserByNameService.outputs.SUCCESS, (user) => {
-        expect(user.id).to.equal('abc');
-        expect(user.name).to.equal('The User');
-        done();
+    context('when is unauthorized', () => {
+      beforeEach(() => {
+        const MockUsersRepository = {
+          getByName: (userName) =>  Promise.resolve(new User({id: 'abc', name: userName, role: 'user'}))
+        };
+  
+        getUserByNameService = new GetUserByNameService({
+          usersRepository: MockUsersRepository
+        });
       });
-
-      getUserByNameService.execute('The User');
+  
+      it('emits UNAUTHORIZED with the user', (done) => {
+        getUserByNameService.on(getUserByNameService.outputs.UNAUTHORIZED, (error) => {
+          expect(error.details).to.equal('Unauthorized to access this resource');
+          done();
+        });
+  
+        getUserByNameService.execute('The User', ['admin']);
+      });
     });
+    
   });
 
   context('when user does not exist', () => {
@@ -48,7 +70,7 @@ describe('App :: User :: GetUserByNameService', () => {
         done();
       });
 
-      getUserByNameService.execute('The User');
+      getUserByNameService.execute('The User', ['admin']);
     });
   });
 });

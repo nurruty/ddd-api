@@ -45,11 +45,10 @@ describe('Infra :: User :: UsersRepository', () => {
 
     context('when user exists', () => {
       it('returns user or users from webService', async () => {
-        const users = await repository.getByName('Manning');
+        const user = await repository.getByName('Manning');
   
-        expect(users).to.have.lengthOf(1);
-        expect(users[0]).to.be.instanceOf(User);
-        expect(users[0].name).to.equal('Manning');
+        expect(user).to.be.instanceOf(User);
+        expect(user.name).to.equal('Manning');
       });
     });
 
@@ -61,7 +60,7 @@ describe('Infra :: User :: UsersRepository', () => {
   
         } catch(error) {
           expect(error.message).to.equal('NotFoundError');
-          expect(error.details).to.equal(`Users with name ${name} can't be found.`);
+          expect(error.details).to.equal(`User ${name} can't be found.`);
         }
       });
     });

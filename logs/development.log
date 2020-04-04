@@ -313,3 +313,184 @@
 [2020-04-04 15:40:44.455] [INFO] [default] - [0mGET /api/users/name/Nico [33m404[0m 484.028 ms - 72[0m
 [2020-04-04 15:41:08.183] [INFO] [default] - [p 11062] Listening at port 8080
 [2020-04-04 15:41:11.980] [INFO] [default] - [0mGET /api/users/name/Nico [33m404[0m 436.903 ms - 72[0m
+[2020-04-04 16:04:17.706] [INFO] [default] - [p 13010] Listening at port 8080
+[2020-04-04 16:04:24.639] [INFO] [default] - [0mGET /api/users/name/Nico [33m404[0m 490.332 ms - 73[0m
+[2020-04-04 16:04:30.456] [INFO] [default] - [0mGET /api/users/name/Manning [32m200[0m 331.747 ms - 122[0m
+[2020-04-04 16:04:55.995] [INFO] [default] - [0mGET /api/users/cf04ea21-bdec-48dd-b934-5f103cbce90b [33m404[0m 323.907 ms - 94[0m
+[2020-04-04 16:05:11.917] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8e [32m200[0m 896.905 ms - 119[0m
+[2020-04-04 16:05:19.146] [INFO] [default] - [0mGET /api/policies/user/Manning [32m200[0m 961.810 ms - -[0m
+[2020-04-04 16:05:36.027] [INFO] [default] - [0mGET /api/policies/user/Nico [32m200[0m 810.632 ms - 2[0m
+[2020-04-04 16:05:48.796] [INFO] [default] - [0mGET /api/policies/user/Merril [32m200[0m 743.253 ms - 2[0m
+[2020-04-04 16:06:02.738] [INFO] [default] - [0mGET /api/users/policy/e3a67b32-57ea-4874-afb7-2a11cb3cf975 [32m200[0m 896.249 ms - 120[0m
+[2020-04-04 16:06:19.420] [INFO] [default] - [0mGET /api/users/policy/88307fa-d261-4a9f-8d30-65fc3375617e [33m404[0m 471.585 ms - 95[0m
+[2020-04-04 16:06:31.396] [INFO] [default] - [0mGET /api/users/policy/788307fa-d261-4a9f-8d30-65fc3375617e [32m200[0m 1133.174 ms - 120[0m
+[2020-04-04 16:07:56.003] [INFO] [default] - [p 13616] Listening at port 8080
+[2020-04-04 16:08:41.261] [INFO] [default] - [p 13673] Listening at port 8080
+[2020-04-04 16:08:43.735] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8e [33m401[0m 964.508 ms - -[0m
+[2020-04-04 16:09:24.576] [INFO] [default] - [p 13779] Listening at port 8080
+[2020-04-04 16:09:40.785] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8e [33m401[0m 561.797 ms - -[0m
+[2020-04-04 16:11:15.247] [INFO] [default] - [p 13936] Listening at port 8080
+[2020-04-04 16:11:18.126] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8e [33m401[0m 400.648 ms - -[0m
+[2020-04-04 16:14:01.838] [INFO] [default] - [p 14422] Listening at port 8080
+[2020-04-04 16:14:06.423] [ERROR] [default] - { inspect: [Function: inspect] }
+[2020-04-04 16:14:06.557] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8e [31m500[0m 117.480 ms - -[0m
+[2020-04-04 16:15:30.641] [INFO] [default] - [p 14688] Listening at port 8080
+[2020-04-04 16:19:00.858] [INFO] [default] - [p 14767] Listening at port 8080
+[2020-04-04 16:19:04.903] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8e [33m401[0m 401.920 ms - -[0m
+[2020-04-04 16:21:08.671] [INFO] [default] - [p 14909] Listening at port 8080
+[2020-04-04 16:21:12.456] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8e [33m401[0m 612.994 ms - -[0m
+[2020-04-04 16:22:11.824] [INFO] [default] - [p 14971] Listening at port 8080
+[2020-04-04 16:22:16.074] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8e [32m200[0m 363.981 ms - 119[0m
+[2020-04-04 16:22:43.423] [INFO] [default] - [p 15018] Listening at port 8080
+[2020-04-04 16:22:46.672] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8e [32m200[0m 540.170 ms - -[0m
+[2020-04-04 16:23:05.274] [INFO] [default] - [p 15057] Listening at port 8080
+[2020-04-04 16:23:09.700] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8e [32m200[0m 379.529 ms - 119[0m
+[2020-04-04 16:23:21.295] [INFO] [default] - [p 15094] Listening at port 8080
+[2020-04-04 16:23:24.548] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8e [32m200[0m 381.383 ms - 119[0m
+[2020-04-04 16:24:01.115] [INFO] [default] - [p 15134] Listening at port 8080
+[2020-04-04 16:24:06.081] [INFO] [default] - [p 15157] Listening at port 8080
+[2020-04-04 16:24:09.074] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8e [33m401[0m 601.835 ms - -[0m
+[2020-04-04 16:24:36.076] [INFO] [default] - [p 15230] Listening at port 8080
+[2020-04-04 16:24:39.461] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8e [33m401[0m 525.317 ms - -[0m
+[2020-04-04 16:25:01.290] [INFO] [default] - [p 15268] Listening at port 8080
+[2020-04-04 16:25:05.231] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8e [33m401[0m 433.974 ms - -[0m
+[2020-04-04 16:25:26.019] [INFO] [default] - [p 15321] Listening at port 8080
+[2020-04-04 16:25:30.249] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8e [33m401[0m 619.879 ms - -[0m
+[2020-04-04 16:25:54.014] [INFO] [default] - [p 15363] Listening at port 8080
+[2020-04-04 16:27:49.105] [INFO] [default] - [p 15550] Listening at port 8080
+[2020-04-04 16:30:30.590] [INFO] [default] - [p 15829] Listening at port 8080
+[2020-04-04 16:30:39.345] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8e [32m200[0m 781.736 ms - 119[0m
+[2020-04-04 16:30:53.982] [INFO] [default] - [p 15875] Listening at port 8080
+[2020-04-04 16:31:23.874] [INFO] [default] - [p 15912] Listening at port 8080
+[2020-04-04 16:31:26.906] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8 [32m200[0m 393.569 ms - -[0m
+[2020-04-04 16:32:06.169] [INFO] [default] - [p 16076] Listening at port 8080
+[2020-04-04 16:32:09.247] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8 [33m401[0m 339.865 ms - 12[0m
+[2020-04-04 16:32:45.052] [INFO] [default] - [p 16230] Listening at port 8080
+[2020-04-04 16:32:47.245] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8 [33m401[0m 414.386 ms - -[0m
+[2020-04-04 16:33:03.049] [INFO] [default] - [p 16268] Listening at port 8080
+[2020-04-04 16:33:05.392] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8 [33m401[0m 447.884 ms - -[0m
+[2020-04-04 16:33:39.523] [INFO] [default] - [p 16322] Listening at port 8080
+[2020-04-04 16:34:24.483] [INFO] [default] - [p 16488] Listening at port 8080
+[2020-04-04 16:34:26.959] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8 [33m401[0m 435.667 ms - 12[0m
+[2020-04-04 16:35:00.189] [INFO] [default] - [p 16530] Listening at port 8080
+[2020-04-04 16:35:03.337] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8 [33m401[0m 444.901 ms - 12[0m
+[2020-04-04 16:35:21.198] [INFO] [default] - [p 16576] Listening at port 8080
+[2020-04-04 16:35:23.682] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8 [33m401[0m 514.440 ms - 12[0m
+[2020-04-04 16:35:49.824] [INFO] [default] - [p 16652] Listening at port 8080
+[2020-04-04 16:35:52.158] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8 [33m401[0m 377.810 ms - 26[0m
+[2020-04-04 16:36:17.800] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8e [33m401[0m 362.940 ms - 26[0m
+[2020-04-04 16:36:19.931] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8e [33m401[0m 377.436 ms - 26[0m
+[2020-04-04 16:36:55.353] [INFO] [default] - [p 16737] Listening at port 8080
+[2020-04-04 16:36:58.714] [INFO] [default] - [0mGET /api/users/44e44268-dce8-4902-b662-1b34d2c10b8e [33m401[0m 393.763 ms - 26[0m
+[2020-04-04 16:37:32.193] [INFO] [default] - [0mGET /api/users/a0ece5db-cd14-4f21-812f-966633e7be86 [33m401[0m 450.268 ms - 26[0m
+[2020-04-04 16:37:53.653] [INFO] [default] - [p 16808] Listening at port 8080
+[2020-04-04 16:37:57.707] [INFO] [default] - [0mGET /api/users/a0ece5db-cd14-4f21-812f-966633e7be86 [33m401[0m 346.560 ms - 26[0m
+[2020-04-04 16:38:14.431] [INFO] [default] - [p 16845] Listening at port 8080
+[2020-04-04 16:38:17.959] [INFO] [default] - [0mGET /api/users/a0ece5db-cd14-4f21-812f-966633e7be86 [33m401[0m 448.640 ms - 26[0m
+[2020-04-04 16:41:11.771] [INFO] [default] - [p 17156] Listening at port 8080
+[2020-04-04 16:41:18.079] [INFO] [default] - [0mGET /api/users/a0ece5db-cd14-4f21-812f-966633e7be86 [33m401[0m 383.969 ms - 26[0m
+[2020-04-04 16:41:33.139] [INFO] [default] - [p 17197] Listening at port 8080
+[2020-04-04 16:41:35.758] [INFO] [default] - [0mGET /api/users/a0ece5db-cd14-4f21-812f-966633e7be86 [33m401[0m 481.836 ms - 26[0m
+[2020-04-04 16:42:44.298] [INFO] [default] - [p 17256] Listening at port 8080
+[2020-04-04 16:43:47.747] [INFO] [default] - [p 17294] Listening at port 8080
+[2020-04-04 16:43:51.326] [INFO] [default] - [0mGET /api/users/a0ece5db-cd14-4f21-812f-966633e7be86 [33m401[0m 413.628 ms - 26[0m
+[2020-04-04 16:45:12.286] [INFO] [default] - [p 17388] Listening at port 8080
+[2020-04-04 16:46:22.307] [INFO] [default] - [p 17424] Listening at port 8080
+[2020-04-04 16:46:28.396] [INFO] [default] - [0mGET /api/users/a0ece5db-cd14-4f21-812f-966633e7be86 [32m200[0m 654.838 ms - 120[0m
+[2020-04-04 16:47:25.587] [INFO] [default] - [p 17514] Listening at port 8080
+[2020-04-04 17:13:21.579] [INFO] [default] - [p 18246] Listening at port 8080
+[2020-04-04 17:15:07.334] [INFO] [default] - [p 18346] Listening at port 8080
+[2020-04-04 17:15:47.296] [INFO] [default] - [p 18379] Listening at port 8080
+[2020-04-04 17:16:36.539] [INFO] [default] - [p 18455] Listening at port 8080
+[2020-04-04 17:19:21.596] [INFO] [default] - [p 18546] Listening at port 8080
+[2020-04-04 17:20:35.435] [INFO] [default] - [p 18599] Listening at port 8080
+[2020-04-04 17:21:08.396] [INFO] [default] - [p 18655] Listening at port 8080
+[2020-04-04 17:21:09.912] [INFO] [default] - [p 18679] Listening at port 8080
+[2020-04-04 17:21:27.634] [INFO] [default] - [p 18708] Listening at port 8080
+[2020-04-04 17:21:34.004] [INFO] [default] - [p 18731] Listening at port 8080
+[2020-04-04 17:23:25.210] [INFO] [default] - [p 18810] Listening at port 8080
+[2020-04-04 17:23:40.361] [INFO] [default] - [p 18836] Listening at port 8080
+[2020-04-04 17:23:48.719] [INFO] [default] - [p 18857] Listening at port 8080
+[2020-04-04 17:24:04.863] [INFO] [default] - [p 18889] Listening at port 8080
+[2020-04-04 17:26:47.096] [INFO] [default] - [p 19227] Listening at port 8080
+[2020-04-04 17:26:54.329] [INFO] [default] - [p 19249] Listening at port 8080
+[2020-04-04 17:27:05.266] [INFO] [default] - [p 19282] Listening at port 8080
+[2020-04-04 17:27:13.059] [INFO] [default] - [p 19304] Listening at port 8080
+[2020-04-04 17:27:33.791] [INFO] [default] - [p 19347] Listening at port 8080
+[2020-04-04 17:27:40.159] [INFO] [default] - [0mGET /api/users/a0ece5db-cd14-4f21-812f-966633e7be86 [32m200[0m 568.702 ms - 120[0m
+[2020-04-04 17:27:44.941] [INFO] [default] - [0mGET /api/users/a0ece5db-cd14-4f21-812f-966633e7be8 [33m404[0m 392.741 ms - 93[0m
+[2020-04-04 17:30:11.941] [INFO] [default] - [p 19592] Listening at port 8080
+[2020-04-04 17:30:30.742] [INFO] [default] - [p 19622] Listening at port 8080
+[2020-04-04 17:30:40.694] [INFO] [default] - [p 19649] Listening at port 8080
+[2020-04-04 17:30:44.015] [INFO] [default] - [0mGET /api/policies/user/Merril [33m404[0m 395.421 ms - 64[0m
+[2020-04-04 17:31:20.655] [INFO] [default] - [p 19702] Listening at port 8080
+[2020-04-04 17:31:23.434] [INFO] [default] - [0mGET /api/policies/user/Merril [33m404[0m 547.351 ms - 64[0m
+[2020-04-04 17:31:31.728] [INFO] [default] - [p 19739] Listening at port 8080
+[2020-04-04 17:32:07.639] [INFO] [default] - [p 19773] Listening at port 8080
+[2020-04-04 17:32:10.268] [INFO] [default] - [0mGET /api/policies/user/Merril [33m404[0m 393.254 ms - 64[0m
+[2020-04-04 17:32:26.059] [INFO] [default] - [p 19809] Listening at port 8080
+[2020-04-04 17:32:38.136] [INFO] [default] - [p 19836] Listening at port 8080
+[2020-04-04 17:32:40.327] [INFO] [default] - [0mGET /api/policies/user/Merril [33m404[0m 445.597 ms - 64[0m
+[2020-04-04 17:33:05.897] [INFO] [default] - [p 19881] Listening at port 8080
+[2020-04-04 17:33:08.587] [INFO] [default] - [0mGET /api/policies/user/Merril [33m404[0m 373.753 ms - 64[0m
+[2020-04-04 17:33:23.890] [INFO] [default] - [p 19917] Listening at port 8080
+[2020-04-04 17:33:36.038] [INFO] [default] - [p 19942] Listening at port 8080
+[2020-04-04 17:33:46.266] [INFO] [default] - [0mGET /api/policies/user/Merrill [32m200[0m 1314.028 ms - 2[0m
+[2020-04-04 17:33:59.035] [INFO] [default] - [p 19981] Listening at port 8080
+[2020-04-04 17:34:12.559] [INFO] [default] - [p 20031] Listening at port 8080
+[2020-04-04 17:34:15.885] [INFO] [default] - [0mGET /api/policies/user/Merrill [32m200[0m 1170.804 ms - 2[0m
+[2020-04-04 17:34:29.179] [INFO] [default] - [p 20072] Listening at port 8080
+[2020-04-04 17:35:17.507] [INFO] [default] - [p 20121] Listening at port 8080
+[2020-04-04 17:35:24.646] [INFO] [default] - [0mGET /api/policies/user/Merrill [32m200[0m 2155.944 ms - 2[0m
+[2020-04-04 17:36:10.696] [INFO] [default] - [p 20171] Listening at port 8080
+[2020-04-04 17:36:28.339] [INFO] [default] - [0mGET /api/users/policy/788307fa-d261-4a9f-8d30-65fc3375617e [32m200[0m 961.197 ms - 120[0m
+[2020-04-04 17:37:29.649] [INFO] [default] - [0mGET /api/policies/user/Barnett [32m200[0m 1256.354 ms - 2[0m
+[2020-04-04 17:37:56.362] [INFO] [default] - [p 20297] Listening at port 8080
+[2020-04-04 17:37:59.727] [INFO] [default] - [0mGET /api/policies/user/Barnett [32m200[0m 1367.318 ms - 2[0m
+[2020-04-04 17:38:11.624] [INFO] [default] - [p 20327] Listening at port 8080
+[2020-04-04 17:38:37.177] [INFO] [default] - [p 20399] Listening at port 8080
+[2020-04-04 17:38:50.473] [INFO] [default] - [p 20430] Listening at port 8080
+[2020-04-04 17:38:59.594] [INFO] [default] - [p 20461] Listening at port 8080
+[2020-04-04 17:39:13.288] [INFO] [default] - [p 20595] Listening at port 8080
+[2020-04-04 17:39:25.487] [INFO] [default] - [p 20631] Listening at port 8080
+[2020-04-04 17:40:05.880] [INFO] [default] - [p 20670] Listening at port 8080
+[2020-04-04 17:40:09.105] [INFO] [default] - [0mGET /api/policies/user/Barnett [33m401[0m 465.783 ms - 23[0m
+[2020-04-04 17:40:18.437] [INFO] [default] - [0mGET /api/policies/user/Manning [32m200[0m 1134.005 ms - -[0m
+[2020-04-04 17:40:44.946] [INFO] [default] - [p 20741] Listening at port 8080
+[2020-04-04 17:40:50.319] [INFO] [default] - [p 20762] Listening at port 8080
+[2020-04-04 17:41:06.189] [INFO] [default] - [0mGET /api/users/a3b8d425-2b60-4ad7-becc-bedf2ef860bd [33m401[0m 431.672 ms - 23[0m
+[2020-04-04 17:41:19.228] [INFO] [default] - [0mGET /api/users/name/Barnett [33m404[0m 445.858 ms - 24[0m
+[2020-04-04 17:41:32.669] [INFO] [default] - [0mGET /api/users/name/Manning [33m404[0m 398.469 ms - 24[0m
+[2020-04-04 17:41:41.044] [INFO] [default] - [p 20833] Listening at port 8080
+[2020-04-04 17:41:45.624] [INFO] [default] - [p 20854] Listening at port 8080
+[2020-04-04 17:41:51.244] [INFO] [default] - [0mGET /api/users/name/Barnett [33m401[0m 347.885 ms - 23[0m
+[2020-04-04 17:41:56.576] [INFO] [default] - [p 20881] Listening at port 8080
+[2020-04-04 17:41:59.872] [INFO] [default] - [0mGET /api/users/name/Barnett [33m404[0m 375.856 ms - 24[0m
+[2020-04-04 17:42:08.885] [INFO] [default] - [p 20918] Listening at port 8080
+[2020-04-04 17:42:14.324] [INFO] [default] - [0mGET /api/users/policy/788307fa-d261-4a9f-8d30-65fc3375617e [33m401[0m 823.560 ms - 23[0m
+[2020-04-04 17:42:18.626] [INFO] [default] - [p 20943] Listening at port 8080
+[2020-04-04 17:42:43.623] [INFO] [default] - [p 20996] Listening at port 8080
+[2020-04-04 17:42:48.477] [INFO] [default] - [0mGET /api/users/name/Barnett [33m404[0m 411.400 ms - 24[0m
+[2020-04-04 17:42:57.906] [INFO] [default] - [p 21033] Listening at port 8080
+[2020-04-04 17:43:42.735] [INFO] [default] - [p 21083] Listening at port 8080
+[2020-04-04 17:43:48.328] [INFO] [default] - [0mGET /api/users/name/Barnett [32m200[0m 349.224 ms - 119[0m
+[2020-04-04 17:43:59.941] [INFO] [default] - [0mGET /api/users/name/Manning [32m200[0m 401.371 ms - 120[0m
+[2020-04-04 17:46:24.474] [INFO] [default] - [0mGET /api/users/name/Juan [33m404[0m 379.718 ms - 62[0m
+[2020-04-04 17:52:02.805] [INFO] [default] - [p 21365] Listening at port 8080
+[2020-04-04 17:58:06.969] [INFO] [default] - [p 21714] Listening at port 8080
+[2020-04-04 17:58:10.271] [INFO] [default] - [0mGET /api/users/sss [33m404[0m 697.460 ms - 61[0m
+[2020-04-04 17:59:25.009] [INFO] [default] - [p 21813] Listening at port 8080
+[2020-04-04 17:59:29.402] [INFO] [default] - [0mGET /api/users/sss [33m404[0m 413.521 ms - 61[0m
+[2020-04-04 18:26:18.299] [INFO] [default] - [p 23468] Listening at port 8080
+[2020-04-04 18:26:22.433] [INFO] [default] - [0mGET /api/policies/user/Manning [32m200[0m 1757.611 ms - -[0m
+[2020-04-04 18:26:51.962] [INFO] [default] - [p 23510] Listening at port 8080
+[2020-04-04 18:28:09.793] [INFO] [default] - [p 23616] Listening at port 8080
+[2020-04-04 18:28:13.739] [INFO] [default] - [0mGET /api/policies/user/Mannings [33m404[0m 1583.795 ms - 66[0m
+[2020-04-04 18:29:17.291] [INFO] [default] - [p 23724] Listening at port 8080
+[2020-04-04 18:29:20.287] [INFO] [default] - [p 23775] Listening at port 8080
+[2020-04-04 18:41:10.972] [INFO] [default] - [p 24642] Listening at port 8080
+[2020-04-04 18:41:15.231] [INFO] [default] - [0mGET /api/policies/user/Mannings [33m404[0m 361.588 ms - 66[0m
+[2020-04-04 18:41:19.030] [INFO] [default] - [0mGET /api/policies/user/Manning [32m200[0m 978.787 ms - -[0m
+[2020-04-04 18:41:41.605] [INFO] [default] - [p 24682] Listening at port 8080
+[2020-04-04 18:42:08.696] [INFO] [default] - [p 24728] Listening at port 8080
+[2020-04-04 18:45:30.711] [INFO] [default] - [p 25040] Listening at port 8080

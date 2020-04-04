@@ -3,9 +3,6 @@ const { scopePerRequest } = require('awilix-express');
 
 const config = require('../config');
 const Application = require('./app/Application');
-const {
-  AuthUserService
-} = require('./app/auth');
 
 const {
   GetUserByIdService,
@@ -68,8 +65,7 @@ container.register({
 
 // Operations
 container.register({
-  authUserService: asClass(AuthUserService),
-
+  
   getUserByIdService: asClass(GetUserByIdService),
   getUserByNameService: asClass(GetUserByNameService),
   getUserPolicyService: asClass(GetUserPolicyService),

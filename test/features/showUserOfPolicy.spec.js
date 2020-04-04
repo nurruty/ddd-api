@@ -3,18 +3,23 @@ const { expect } = require('chai');
 const { v4 } = require('uuid');
 
 describe('API :: GET /api/users', () => {
-  context('when policy is found', () => {
-    it('returns 200 and the user', async () => {
-      const { body } = await request()
-        .get('/api/users/policy/35a0d2f7-37cd-4c21-8dac-fe91b29bd22b')
-        .expect(200);
 
-      expect(body.id).to.exist;
-      expect(body.name).to.equal('Manning');
-      expect(body).to.have.all.keys('id', 'name', 'role', 'email');
+  context('when user is authorized', () => {
+
+    context('when policy is found', () => {
+      it('returns 200 and the user', async () => {
+        const { body } = await request()
+          .get('/api/users/policy/35a0d2f7-37cd-4c21-8dac-fe91b29bd22b')
+          .expect(200);
+  
+        expect(body.id).to.exist;
+        expect(body.name).to.equal('Manning');
+        expect(body).to.have.all.keys('id', 'name', 'role', 'email');
+      });
     });
-  });
 
+  });
+  
   context('when policy isnt found', () => {
     it('returns 404 with the validation error', async () => {
       const fakeId = v4();

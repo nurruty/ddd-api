@@ -1,14 +1,12 @@
 const { Router } = require('express');
 const { inject } = require('awilix-express');
 const Status = require('http-status');
-//const authMiddleware = require('../authMiddleware');
 
 const UsersController = {
   get router() {
     const router = Router();
 
     router.use(inject('userSerializer'));
-    router.use(inject('authUserService'));
 
     router.get('/:id', inject('getUserByIdService'), this.show);
     router.get('/name/:name', inject('getUserByNameService'), this.index);
@@ -21,7 +19,7 @@ const UsersController = {
   show(req, res, next) {
     const { getUserByIdService, userSerializer } = req;
 
-    const { SUCCESS, ERROR, NOT_FOUND } = getUserByIdService.outputs;
+    const { SUCCESS, ERROR, NOT_FOUND, UNAUTHORIZED } = getUserByIdService.outputs;
 
     getUserByIdService
       .on(SUCCESS, (user) => {
@@ -35,21 +33,26 @@ const UsersController = {
           details: error.details
         });
       })
+      .on(UNAUTHORIZED, () => {
+        res.status(Status.UNAUTHORIZED).json({
+          type: 'Unauthorized'
+        });
+      })
       .on(ERROR, next);
 
-    getUserByIdService.execute(req.params.id);
+    getUserByIdService.execute(req.params.id, ['admin', 'user'] );
   },
 
   index(req, res, next) {
     const { getUserByNameService, userSerializer } = req;
 
-    const { SUCCESS, ERROR, NOT_FOUND } = getUserByNameService.outputs;
+    const { SUCCESS, ERROR, NOT_FOUND, UNAUTHORIZED } = getUserByNameService.outputs;
 
     getUserByNameService
-      .on(SUCCESS, (users) => {
+      .on(SUCCESS, (user) => {
         res
           .status(Status.OK)
-          .json(users.map(userSerializer.serialize));
+          .json(userSerializer.serialize(user));
       })
       .on(NOT_FOUND, (error) => {
         res.status(Status.NOT_FOUND).json({
@@ -57,15 +60,20 @@ const UsersController = {
           details: error.details
         });
       })
+      .on(UNAUTHORIZED, () => {
+        res.status(Status.UNAUTHORIZED).json({
+          type: 'Unauthorized'
+        });
+      })
       .on(ERROR, next);
 
-    getUserByNameService.execute(req.params.name);
+    getUserByNameService.execute(req.params.name, ['admin', 'user'] );
   },
 
   user(req, res, next) {
     const { getUserPolicyService, userSerializer } = req;
 
-    const { SUCCESS, ERROR, NOT_FOUND } = getUserPolicyService.outputs;
+    const { SUCCESS, ERROR, NOT_FOUND, UNAUTHORIZED } = getUserPolicyService.outputs;
 
     getUserPolicyService
       .on(SUCCESS, (user) => {
@@ -79,9 +87,14 @@ const UsersController = {
           details: error.details
         });
       })
+      .on(UNAUTHORIZED, () => {
+        res.status(Status.UNAUTHORIZED).json({
+          type: 'Unauthorized'
+        });
+      })
       .on(ERROR, next);
 
-    getUserPolicyService.execute(req.params.id);
+    getUserPolicyService.execute(req.params.id, ['admin'] );
   }
 
  

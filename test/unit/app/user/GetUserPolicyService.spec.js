@@ -1,34 +1,59 @@
 const { expect } = require('chai');
 const GetUserPolicyService = require('src/app/user/GetUserPolicyService');
+const User = require('src/domain/user/User');
 
 describe('App :: User :: GetUserPolicyService', () => {
   let getUserPolicyService;
 
   context('when policy exists', () => {
-    beforeEach(() => {
-      const MockPoliciesRepository = {
-        getById: (policyId) => Promise.resolve({
-          id: policyId,
-          client: {
-            id: 'abc',
-            name: 'The Client'
-          }
-        })
-      };
-
-      getUserPolicyService = new GetUserPolicyService({
-        policiesRepository: MockPoliciesRepository
+    context('when is authorized user', () => {
+      beforeEach(() => {
+        const MockPoliciesRepository = {
+          getById: (policyId) => Promise.resolve({
+            id: policyId,
+            client: new User({id: 'abc', name: 'The Client', role: 'user'})
+          })
+        };
+  
+        getUserPolicyService = new GetUserPolicyService({
+          policiesRepository: MockPoliciesRepository
+        });
+      });
+  
+      it('emits SUCCESS with the user', (done) => {
+        getUserPolicyService.on(getUserPolicyService.outputs.SUCCESS, (user) => {
+          expect(user.name).to.equal('The Client');
+          done();
+        });
+  
+        getUserPolicyService.execute('abc', ['admin', 'user']);
       });
     });
 
-    it('emits SUCCESS with the user', (done) => {
-      getUserPolicyService.on(getUserPolicyService.outputs.SUCCESS, (user) => {
-        expect(user.name).to.equal('The Client');
-        done();
+    context('when is unauthorized user', () => {
+      beforeEach(() => {
+        const MockPoliciesRepository = {
+          getById: (policyId) => Promise.resolve({
+            id: policyId,
+            client: new User({id: 'abc', name: 'The Client', role: 'user'})
+          })
+        };
+  
+        getUserPolicyService = new GetUserPolicyService({
+          policiesRepository: MockPoliciesRepository
+        });
       });
-
-      getUserPolicyService.execute('abc');
+  
+      it('emits UNAUTHORIZED with the user', (done) => {
+        getUserPolicyService.on(getUserPolicyService.outputs.UNAUTHORIZED, (error) => {
+          expect(error.details).to.equal('Unauthorized to access this resource');
+          done();
+        });
+  
+        getUserPolicyService.execute('abc', ['admin']);
+      });
     });
+  
   });
 
   context('when policy does not exist', () => {
@@ -50,7 +75,7 @@ describe('App :: User :: GetUserPolicyService', () => {
         done();
       });
 
-      getUserPolicyService.execute('cde');
+      getUserPolicyService.execute('cde', ['admin', 'user']);
     });
   });
 });

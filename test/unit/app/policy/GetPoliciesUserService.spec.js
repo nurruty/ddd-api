@@ -1,46 +1,85 @@
 const { expect } = require('chai');
 const GetPoliciesUserService = require('src/app/policy/GetPoliciesUserService');
+const User = require('src/domain/user/User');
 
 describe('App :: User :: GetPoliciesUserService', () => {
   let getPoliciesUserService;
 
   context('when policy exists', () => {
-    beforeEach(() => {
-      const MockPoliciesRepository = {
-        getByUser: (userName) => Promise.resolve(
-          [
-            {
-              id: 'cde',
-              client: {
-                id: 'abc',
-                name: userName
-              }
-            },
-            {
-              id: 'fgh',
-              client: {
+    context('when user is authorized', () => {
+      beforeEach(() => {
+        const MockPoliciesRepository = {
+          getByUser: (userName) => Promise.resolve(
+            [
+              {
                 id: 'cde',
-                name: userName
+                client: new User({
+                  id: 'abc',
+                  name: userName,
+                  role: 'user'
+                })
+              },
+              {
+                id: 'abc',
+                client: new User({
+                  id: 'abc',
+                  name: userName,
+                  role: 'user'
+                })
               }
-            }
-          ])
-      };
+            ])
+        };
 
-      getPoliciesUserService = new GetPoliciesUserService({
-        policiesRepository: MockPoliciesRepository
+        const MockUsersRepository = {
+          getByName: (userName) =>  Promise.resolve(new User({id: 'abc', name: userName, role: 'user'})),
+        };
+  
+        getPoliciesUserService = new GetPoliciesUserService({
+          policiesRepository: MockPoliciesRepository,
+          usersRepository: MockUsersRepository
+        });
+      });
+  
+      it('emits SUCCESS with the user', (done) => {
+        getPoliciesUserService.on(getPoliciesUserService.outputs.SUCCESS, (policies) => {
+          expect(policies).to.have.length(2);
+          expect(policies[0].client.name).to.equal('The User');
+          expect(policies[1].client.name).to.equal('The User');
+          done();
+        });
+  
+        getPoliciesUserService.execute('The User', ['user']);
       });
     });
 
-    it('emits SUCCESS with the user', (done) => {
-      getPoliciesUserService.on(getPoliciesUserService.outputs.SUCCESS, (policies) => {
-        expect(policies).to.have.length(2);
-        expect(policies[0].client.name).to.equal('The User');
-        expect(policies[1].client.name).to.equal('The User');
-        done();
+    context('when user is unauthorized', () => {
+      beforeEach(() => {
+        const MockPoliciesRepository = {
+          getByUser: (userName) => Promise.resolve(
+            [{id: 'cde', client: new User({ id: 'abc', name: userName, role: 'user'})}])
+        };
+
+        const MockUsersRepository = {
+          getByName: (userName) =>  Promise.resolve(new User({id: 'abc', name: userName, role: 'user'})),
+        };
+  
+        getPoliciesUserService = new GetPoliciesUserService({
+          policiesRepository: MockPoliciesRepository,
+          usersRepository: MockUsersRepository
+        });
+  
       });
 
-      getPoliciesUserService.execute('The User');
+      it('emits UNAUTHORIZED with the user', (done) => {
+        getPoliciesUserService.on(getPoliciesUserService.outputs.UNAUTHORIZED, (error) => {
+          expect(error.details).to.equal('Unauthorized to access this resource');
+          done();
+        });
+  
+        getPoliciesUserService.execute('The User', ['admin']);
+      });
     });
+   
   });
 
   context('when there are no policies for a user', () => {
@@ -51,8 +90,13 @@ describe('App :: User :: GetPoliciesUserService', () => {
         })
       };
 
+      const MockUsersRepository = {
+        getByName: (userName) =>  Promise.resolve(new User({id: 'abc', name: userName, role: 'admin'})),
+      };
+
       getPoliciesUserService = new GetPoliciesUserService({
-        policiesRepository: MockPoliciesRepository
+        policiesRepository: MockPoliciesRepository,
+        usersRepository: MockUsersRepository
       });
     });
 
@@ -62,7 +106,7 @@ describe('App :: User :: GetPoliciesUserService', () => {
         done();
       });
 
-      getPoliciesUserService.execute('The User');
+      getPoliciesUserService.execute('The User', ['admin']);
     });
   });
 });

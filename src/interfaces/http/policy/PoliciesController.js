@@ -1,14 +1,12 @@
 const { Router } = require('express');
 const { inject } = require('awilix-express');
 const Status = require('http-status');
-//const authMiddleware = require('../authMiddleware');
 
 const PolicysController = {
   get router() {
     const router = Router();
 
     router.use(inject('policySerializer'));
-    router.use(inject('authUserService'));
 
     router.get('/user/:name', inject('getPoliciesUserService'), this.show);
     
@@ -19,7 +17,7 @@ const PolicysController = {
   show(req, res, next) {
     const { getPoliciesUserService, policySerializer } = req;
 
-    const { SUCCESS, ERROR, NOT_FOUND } = getPoliciesUserService.outputs;
+    const { SUCCESS, ERROR, NOT_FOUND, UNAUTHORIZED } = getPoliciesUserService.outputs;
 
     getPoliciesUserService
       .on(SUCCESS, (policies) => {
@@ -33,9 +31,14 @@ const PolicysController = {
           details: error.details
         });
       })
+      .on(UNAUTHORIZED, () => {
+        res.status(Status.UNAUTHORIZED).json({
+          type: 'Unauthorized'
+        });
+      })
       .on(ERROR, next);
 
-    getPoliciesUserService.execute(req.params.name);
+    getPoliciesUserService.execute(req.params.name, ['admin'] );
   },
 
  

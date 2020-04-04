@@ -44,20 +44,19 @@ class UsersRepository {
     try {
 
       const { data } = await this.api(this.url);
-      const { clients } = data;
+      const { clients: users } = data;
+      const user = users.filter(user => user.name === name)[0];
 
-     
-      const users = clients.filter(user => user.name === name);
-
-      if(users.length === 0){
+      if(!user) {
         const error = new Error('NotFoundError');
-        error.details = `Users with name ${name} can't be found.`;
+        error.details = `User ${name} can't be found.`;
         throw error;
       }
 
-      return users.map(UserMapper.toEntity);
+      return UserMapper.toEntity(user);
 
     } catch(error){
+  
       throw error;
     }
 

@@ -1,17 +1,22 @@
 const Operation = require('src/app/Operation');
+const isAuthorized = require('src/app/helpers/isAuthorized');
 
 class GetPoliciesUserService extends Operation {
-  constructor({ policiesRepository }) {
+  constructor({ policiesRepository, usersRepository }) {
     super();
     this.policiesRepository = policiesRepository;
+    this.usersRepository = usersRepository;
   }
 
-  async execute(userName) {
-    const { SUCCESS, NOT_FOUND } = this.outputs;
+  async execute(userName, admitedRoles) {
+    const { SUCCESS, NOT_FOUND, UNAUTHORIZED } = this.outputs;
 
     try {
-
-      
+      const user = await this.usersRepository.getByName(userName);
+      if(!isAuthorized(user, admitedRoles)) {
+        this.emit(UNAUTHORIZED, {details: 'Unauthorized to access this resource'});
+        return;
+      }
       const policies = await this.policiesRepository.getByUser(userName);
       this.emit(SUCCESS, policies);
     } catch(error) {
@@ -23,6 +28,6 @@ class GetPoliciesUserService extends Operation {
   }
 }
 
-GetPoliciesUserService.setOutputs(['SUCCESS', 'ERROR', 'NOT_FOUND']);
+GetPoliciesUserService.setOutputs(['SUCCESS', 'ERROR', 'NOT_FOUND', 'UNAUTHORIZED']);
 
 module.exports = GetPoliciesUserService;
