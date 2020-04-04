@@ -11,7 +11,9 @@ class AuthUserService extends Operation {
 
     try {
       const user = await this.usersRepository.getById(userId);
-      if(admitedRoles.indexOf(user.getRole()) > -1) this.emit(AUTHORIZED);
+      admitedRoles.forEach(role => {
+        if(user.hasRole(role)) this.emit(AUTHORIZED);
+      }); 
       this.emit(NOT_AUTHORIZED);
     } catch(error) {
       this.emit(NOT_AUTHORIZED);

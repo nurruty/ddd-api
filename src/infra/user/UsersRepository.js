@@ -24,6 +24,12 @@ class UsersRepository {
       const { clients: users } = data;
       const user = users.filter(user => user.id === id)[0];
 
+      if(!user) {
+        const error = new Error('NotFoundError');
+        error.details = `User ${id} can't be found.`;
+        throw error;
+      }
+
       return UserMapper.toEntity(user);
 
     } catch(error){
@@ -38,8 +44,18 @@ class UsersRepository {
     try {
 
       const { data } = await this.api(this.url);
-      const { clients: users } = data;
-      return users.filter(user => user.name === name).map(UserMapper.toEntity);
+      const { clients } = data;
+
+     
+      const users = clients.filter(user => user.name === name);
+
+      if(users.length === 0){
+        const error = new Error('NotFoundError');
+        error.details = `Users with name ${name} can't be found.`;
+        throw error;
+      }
+
+      return users.map(UserMapper.toEntity);
 
     } catch(error){
       throw error;
@@ -47,7 +63,6 @@ class UsersRepository {
 
   }
 
- 
 }
 
 module.exports = UsersRepository;

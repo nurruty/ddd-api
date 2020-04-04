@@ -9,7 +9,8 @@ const {
 
 const {
   GetUserByIdService,
-  GetUserByNameService
+  GetUserByNameService,
+  GetUserPolicyService
 } = require('./app/user');
 
 const {
@@ -71,6 +72,7 @@ container.register({
 
   getUserByIdService: asClass(GetUserByIdService),
   getUserByNameService: asClass(GetUserByNameService),
+  getUserPolicyService: asClass(GetUserPolicyService),
 
   getPoliciesUserService: asClass(GetPoliciesUserService)
 });

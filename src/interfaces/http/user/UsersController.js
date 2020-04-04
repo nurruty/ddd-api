@@ -12,7 +12,7 @@ const UsersController = {
 
     router.get('/:id', inject('getUserByIdService'), this.show);
     router.get('/name/:name', inject('getUserByNameService'), this.index);
-    router.get('/policy/:id', inject('getUserPolicyService'), this.index);
+    router.get('/policy/:id', inject('getUserPolicyService'), this.user);
 
     return router; 
   },
@@ -61,6 +61,28 @@ const UsersController = {
 
     getUserByNameService.execute(req.params.name);
   },
+
+  user(req, res, next) {
+    const { getUserPolicyService, userSerializer } = req;
+
+    const { SUCCESS, ERROR, NOT_FOUND } = getUserPolicyService.outputs;
+
+    getUserPolicyService
+      .on(SUCCESS, (user) => {
+        res
+          .status(Status.OK)
+          .json(userSerializer.serialize(user));
+      })
+      .on(NOT_FOUND, (error) => {
+        res.status(Status.NOT_FOUND).json({
+          type: 'NotFoundError',
+          details: error.details
+        });
+      })
+      .on(ERROR, next);
+
+    getUserPolicyService.execute(req.params.id);
+  }
 
  
 };

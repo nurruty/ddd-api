@@ -6,6 +6,10 @@ const User = attributes({
   email: String,
   role: String
 })(class User {
+
+  hasRole(role) {
+    return this.role === role;
+  }
   
   getRole() {
     return this.role;

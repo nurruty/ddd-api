@@ -43,13 +43,27 @@ class PoliciesRepository {
    
   }
 
-  async getByName(name) {
+  async getById(policyId) {
 
     try {
 
-      const { data } = await this.api(this.url);
-      const { clients: users } = data;
-      return users.filter(user => user.name === name).map(PolicyMapper.toEntity);
+      const response = await this.api(this.policiesUrl);
+      const { policies } = response.data;
+      const policy = policies.filter(policy => policy.id === policyId)[0];
+      
+      if(!policy) {
+        const error = new Error('NotFoundError');
+        error.details = `Policy ${policyId} can't be found.`;
+        throw error;
+      }
+      
+      const { data } = await this.api(this.usersUrl);
+      const { clients } = data;
+      const client = clients.filter(client => client.id === policy.clientId)[0];
+      policy.client = client;
+
+      return PolicyMapper.toEntity(policy);
+      
 
     } catch(error){
       throw error;

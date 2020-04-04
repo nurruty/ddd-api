@@ -11,6 +11,7 @@ class GetPoliciesUserService extends Operation {
 
     try {
 
+      
       const policies = await this.policiesRepository.getByUser(userName);
       this.emit(SUCCESS, policies);
     } catch(error) {
