@@ -1,6 +1,7 @@
 const PolicyMapper = require('./PolicyMapper');
 const https = require('https');
 const axios = require('axios');
+const _ = require('lodash');
 
 class PoliciesRepository {
   constructor({policyWebServiceUrl, userWebServiceUrl}) {
@@ -47,10 +48,12 @@ class PoliciesRepository {
       const response = await this.api(this.policiesUrl);
       const { policies } = response.data;
 
-      const usersMap = {};
-      users.map( user => usersMap[user.id] = user );
+     
+      const usersMap = _.keyBy(users, (u) => { return u.id; });
+      const userPolicies = _.filter(policies, (p) => {
+        return usersMap[p.clientId].name === userName;
+      });
 
-      const userPolicies = policies.filter( policy => usersMap[policy.clientId].name === userName );
 
       return userPolicies.map(PolicyMapper.toEntity);
 

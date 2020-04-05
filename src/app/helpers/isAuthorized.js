@@ -1,14 +1,11 @@
 
+const _ = require('lodash');
 
 const isAuthorized = (user, admitedRoles) => {
   if(!user) return false;
 
-  for(let i = 0; i < admitedRoles.length; i++){
-    if(user.hasRole(admitedRoles[i])) {
-      return true;
-    } 
-  }
-  return false;
+  return _.findIndex(admitedRoles, (r) => { return user.hasRole(r); }) > -1;
+  
 };
 
 module.exports = isAuthorized;
