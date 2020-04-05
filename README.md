@@ -2,7 +2,7 @@
 
 Clone the project
 ```
-git clone 
+git clone https://github.com/nurruty/backend-end-assigment.git
 ```
 Install dependencies
 ```
