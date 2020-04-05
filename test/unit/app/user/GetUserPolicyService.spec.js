@@ -11,12 +11,17 @@ describe('App :: User :: GetUserPolicyService', () => {
         const MockPoliciesRepository = {
           getById: (policyId) => Promise.resolve({
             id: policyId,
-            client: new User({id: 'abc', name: 'The Client', role: 'user'})
+            clientId: 'abc'
           })
+        };
+
+        const MockUsersRepository = {
+          getById: (userId) => Promise.resolve(new User({id: userId, name: 'The Client', role: 'user'}))
         };
   
         getUserPolicyService = new GetUserPolicyService({
-          policiesRepository: MockPoliciesRepository
+          policiesRepository: MockPoliciesRepository,
+          usersRepository: MockUsersRepository,
         });
       });
   
@@ -26,7 +31,7 @@ describe('App :: User :: GetUserPolicyService', () => {
           done();
         });
   
-        getUserPolicyService.execute('abc', ['admin', 'user']);
+        getUserPolicyService.execute('foo', ['admin', 'user']);
       });
     });
 
@@ -39,8 +44,13 @@ describe('App :: User :: GetUserPolicyService', () => {
           })
         };
   
+        const MockUsersRepository = {
+          getById: (userId) => Promise.resolve(new User({id: userId, name: 'The Client', role: 'user'}))
+        };
+  
         getUserPolicyService = new GetUserPolicyService({
-          policiesRepository: MockPoliciesRepository
+          policiesRepository: MockPoliciesRepository,
+          usersRepository: MockUsersRepository,
         });
       });
   
@@ -50,7 +60,7 @@ describe('App :: User :: GetUserPolicyService', () => {
           done();
         });
   
-        getUserPolicyService.execute('abc', ['admin']);
+        getUserPolicyService.execute('foo', ['admin']);
       });
     });
   
@@ -64,8 +74,13 @@ describe('App :: User :: GetUserPolicyService', () => {
         })
       };
 
+      const MockUsersRepository = {
+        getById: (userId) => Promise.resolve(new User({id: userId, name: 'The Client', role: 'user'}))
+      };
+
       getUserPolicyService = new GetUserPolicyService({
-        policiesRepository: MockPoliciesRepository
+        policiesRepository: MockPoliciesRepository,
+        usersRepository: MockUsersRepository,
       });
     });
 

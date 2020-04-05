@@ -2,30 +2,22 @@ const { expect } = require('chai');
 const GetPoliciesUserService = require('src/app/policy/GetPoliciesUserService');
 const User = require('src/domain/user/User');
 
-describe('App :: User :: GetPoliciesUserService', () => {
+describe('App :: Policy :: GetPoliciesUserService', () => {
   let getPoliciesUserService;
 
   context('when policy exists', () => {
     context('when user is authorized', () => {
       beforeEach(() => {
         const MockPoliciesRepository = {
-          getByUser: (userName) => Promise.resolve(
+          getByUser: () => Promise.resolve(
             [
               {
                 id: 'cde',
-                client: new User({
-                  id: 'abc',
-                  name: userName,
-                  role: 'user'
-                })
+                clientId: 'abc'
               },
               {
-                id: 'abc',
-                client: new User({
-                  id: 'abc',
-                  name: userName,
-                  role: 'user'
-                })
+                id: 'ahc',
+                clientId: 'abc'
               }
             ])
         };
@@ -43,8 +35,8 @@ describe('App :: User :: GetPoliciesUserService', () => {
       it('emits SUCCESS with the user', (done) => {
         getPoliciesUserService.on(getPoliciesUserService.outputs.SUCCESS, (policies) => {
           expect(policies).to.have.length(2);
-          expect(policies[0].client.name).to.equal('The User');
-          expect(policies[1].client.name).to.equal('The User');
+          expect(policies[0].clientId).to.equal('abc');
+          expect(policies[1].clientId).to.equal('abc');
           done();
         });
   

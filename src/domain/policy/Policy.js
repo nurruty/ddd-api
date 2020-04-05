@@ -1,5 +1,4 @@
 const { attributes } = require('structure');
-const User = require('../user/User');
 
 const Policy = attributes({
   id: String,
@@ -7,11 +6,27 @@ const Policy = attributes({
   inceptionDate: Date,
   email: String,
   installmentPayment: Boolean,
-  client: User
+  clientId: String
 })(class Policy {
   
-  setClient(client) {
-    this.client = client;
+  getId(){
+    return this.id;
+  }
+
+  getAmountInsured(){
+    return this.amountInsured;
+  }
+
+  getEmail(){
+    return this.email;
+  }
+
+  getInstallmentPayment() {
+    return this.installmentPayment;
+  }
+
+  getClientId() {
+    return this.clientId;
   }
 
 });

@@ -57,19 +57,18 @@ container
 // Repositories
 container.register({
   usersRepository: asClass(UsersRepository).singleton(),
-  policiesRepository: asClass(PoliciesRepository).singleton(),
   userWebServiceUrl: asValue('https://www.mocky.io/v2/5808862710000087232b75ac'),
+
+  policiesRepository: asClass(PoliciesRepository).singleton(),
   policyWebServiceUrl: asValue('https://www.mocky.io/v2/580891a4100000e8242b75c5'),
 });
 
 
-// Operations
+// Application Services
 container.register({
-  
   getUserByIdService: asClass(GetUserByIdService),
   getUserByNameService: asClass(GetUserByNameService),
   getUserPolicyService: asClass(GetUserPolicyService),
-
   getPoliciesUserService: asClass(GetPoliciesUserService)
 });
 

@@ -7,12 +7,24 @@ const User = attributes({
   role: String
 })(class User {
 
-  hasRole(role) {
-    return this.role === role;
+  getId(){
+    return this.id;
   }
-  
+
+  getName() {
+    return this.name;
+  }
+
+  getEmail() {
+    return this.email;
+  }
+
   getRole() {
     return this.role;
+  }
+
+  hasRole(role) {
+    return this.role === role;
   }
 
 });

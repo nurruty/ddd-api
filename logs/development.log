@@ -494,3 +494,20 @@
 [2020-04-04 18:41:41.605] [INFO] [default] - [p 24682] Listening at port 8080
 [2020-04-04 18:42:08.696] [INFO] [default] - [p 24728] Listening at port 8080
 [2020-04-04 18:45:30.711] [INFO] [default] - [p 25040] Listening at port 8080
+[2020-04-04 18:47:08.550] [INFO] [default] - [0mGET /api/policies/user/name/Manning [33m404[0m 5.615 ms - 169[0m
+[2020-04-04 18:47:26.473] [INFO] [default] - [0mGET /api/users/Manning [33m404[0m 325.894 ms - 65[0m
+[2020-04-04 18:47:40.614] [INFO] [default] - [0mGET /api/users/name/Manning [32m200[0m 346.773 ms - 120[0m
+[2020-04-04 21:09:27.264] [INFO] [default] - [p 30402] Listening at port 8080
+[2020-04-04 21:09:29.151] [INFO] [default] - [p 30496] Listening at port 8080
+[2020-04-04 21:09:51.514] [INFO] [default] - [p 30543] Listening at port 8080
+[2020-04-04 21:09:57.912] [INFO] [default] - [0mGET /api/users/name/Manning [32m200[0m 548.502 ms - 120[0m
+[2020-04-04 21:10:04.763] [INFO] [default] - [0mGET /api/policies/user/Manning [32m200[0m 1066.862 ms - -[0m
+[2020-04-04 21:10:30.374] [INFO] [default] - [p 30615] Listening at port 8080
+[2020-04-04 21:10:34.923] [INFO] [default] - [0mGET /api/policies/user/Manning [32m200[0m 1235.427 ms - -[0m
+[2020-04-05 03:01:30.462] [INFO] [default] - [p 12587] Listening at port 8080
+[2020-04-05 03:06:07.409] [INFO] [default] - [0mGET /api/users/name/Manning [32m200[0m 460.299 ms - 120[0m
+[2020-04-05 03:06:34.097] [INFO] [default] - [0mGET /api/users/e8fd159b-57c4-4d36-9bd7-a59ca13057bb [32m200[0m 296.441 ms - 120[0m
+[2020-04-05 03:06:39.930] [INFO] [default] - [0mGET /api/policies/user/Manning [32m200[0m 1033.764 ms - -[0m
+[2020-04-05 03:06:53.489] [INFO] [default] - [0mGET /api/users/policy/788307fa-d261-4a9f-8d30-65fc3375617e [32m200[0m 905.346 ms - 120[0m
+[2020-04-05 03:07:28.336] [INFO] [default] - [0mGET /api/users/policy/19d4fa60-6361-424c-bb15-e81d439b3244 [32m200[0m 844.512 ms - 120[0m
+[2020-04-05 03:14:20.887] [INFO] [default] - [p 13522] Listening at port 8080

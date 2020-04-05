@@ -1,12 +1,12 @@
 const PolicySerializer = {
-  serialize({ id, amountInsured, inceptionDate, installmentPayment, email, client }) {
+  serialize({ id, amountInsured, inceptionDate, installmentPayment, email, clientId }) {
     return {
       id,
       amountInsured,
       inceptionDate,
       email,
       installmentPayment,
-      client
+      clientId
     };
   }
 };

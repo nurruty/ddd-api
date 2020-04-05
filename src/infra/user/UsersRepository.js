@@ -18,8 +18,6 @@ class UsersRepository {
   async getById(id) {
 
     try {
-
-
       const { data } = await this.api(this.url);
       const { clients: users } = data;
       const user = users.filter(user => user.id === id)[0];
@@ -42,7 +40,6 @@ class UsersRepository {
   async getByName(name) {
 
     try {
-
       const { data } = await this.api(this.url);
       const { clients: users } = data;
       const user = users.filter(user => user.name === name)[0];

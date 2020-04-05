@@ -12,8 +12,8 @@ describe('API :: GET /api/policies', () => {
           .expect(200);
   
         expect(body[0].id).to.exist;
-        expect(body[0].client.name).to.equal('Manning');
-        expect(body[0]).to.have.all.keys('id', 'amountInsured', 'inceptionDate', 'installmentPayment', 'email', 'client' );
+        //expect(body[0].client.name).to.equal('Manning');
+        expect(body[0]).to.have.all.keys('id', 'amountInsured', 'inceptionDate', 'installmentPayment', 'email', 'clientId' );
       });
     });
   

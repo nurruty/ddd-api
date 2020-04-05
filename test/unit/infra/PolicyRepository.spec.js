@@ -49,7 +49,7 @@ describe('Infra :: Policy ::PoliciesRepository', () => {
   
         expect(policies).not.to.have.lengthOf(0);
         expect(policies[0]).to.be.instanceOf(Policy);
-        expect(policies[0].client.name).to.equal('Manning');
+        //expect(policies[0].client.name).to.equal('Manning');
       });
     });
 

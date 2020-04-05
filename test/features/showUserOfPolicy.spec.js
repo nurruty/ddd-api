@@ -2,7 +2,7 @@ const request = require('test/support/request');
 const { expect } = require('chai');
 const { v4 } = require('uuid');
 
-describe('API :: GET /api/users', () => {
+describe('API :: GET /api/users/policy', () => {
 
   context('when user is authorized', () => {
 

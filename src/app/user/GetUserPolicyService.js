@@ -2,9 +2,10 @@ const Operation = require('src/app/Operation');
 const isAuthorized = require('src/app/helpers/isAuthorized');
 
 class GetPoliciesUserService extends Operation {
-  constructor({ policiesRepository }) {
+  constructor({ policiesRepository, usersRepository }) {
     super();
     this.policiesRepository = policiesRepository;
+    this.usersRepository = usersRepository;
   }
 
   async execute(policyId, admitedRoles) {
@@ -12,7 +13,7 @@ class GetPoliciesUserService extends Operation {
 
     try {
       const policy = await this.policiesRepository.getById(policyId);
-      const user = policy.client;
+      const user = await this.usersRepository.getById(policy.clientId);
       if(!isAuthorized(user, admitedRoles)) {
         this.emit(UNAUTHORIZED, {details: 'Unauthorized to access this resource'});
         return;
