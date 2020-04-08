@@ -21,6 +21,8 @@ Run
 ```
 npm start
 ```
+The API will be listening at http://localhost:8080
+
 # Testing
 For unit tests run:
 
