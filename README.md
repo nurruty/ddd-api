@@ -21,7 +21,13 @@ Run
 ```
 npm start
 ```
-The API will be listening at http://localhost:8080
+The API will be listening at http://localhost:8080/api  
+
+## Endpoints
+User data by Id: http://localhost:8080/api/users/:id  
+User data by Name: http://localhost:8080/api/users/name/:name  
+Policies linked to a user:  http://localhost:8080/api/policies/user/:name  
+User linked to policy: http://localhost:8080/api/users/policy/:policyId  
 
 # Testing
 For unit tests run:
