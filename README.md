@@ -38,7 +38,7 @@ npm run test
 ```
 
 # Solution
-The project is based on the concepts of DDD and Clean Architecture. The idea behind this approach is to put the domain at the center of the problem. The domain folder has the two classes that represent the two entities of the problem, Users and Policies. From the point of view of the policy, the user is the client who owns the policy, so a clientId that referencing its identifier is added to the Policy entity definition. This entities do not know about anything else in the system but themselves.
+The project is based on the concepts of DDD and Clean Architecture. The idea behind this approach is to put the domain at the center of the problem. The domain folder has the two classes that represent the two entities of the problem, Users and Policies. From the point of view of the policy, the user is the client who owns the policy, so a clientId referencing its identifier is added to the Policy entity definition. This entities do not know about anything else in the system but themselves.
 
 Then, there is a layer of application services (app folder), which implement the 4 use cases requested. Each service knows the entities of the domain and relies on repositories (presented below) to obtain the actual information and then return the data to whoever has executed it.
 
@@ -56,7 +56,7 @@ What can be done to mitigate this situation is to use dependency injection. In o
 One constraint is that the Authorization and Authentication has to be done from the client's web service. This raises a particular situation which is, to verify the user's role, it must first be obtained from the repository, which basically implies executing the use case 2 times, especially in the use case that is invoked by policy number. Therefore, although it is perhaps not the most appropriate approach from the point of view of the separation of responsibilities, I chose to do the authorization validation within the execution of each service.
 
 # The DB
-Finally, it is asked at the end of the assigment, how to get to use a database. One of the most valuable aspects of hexagonal architecture, and especially of the use of repositories, is that the system becomes agnostic of persistence. What today is a call to 2 web service, can easily become a query to a BD without having to touch the rest of the code.
+Finally, it is asked at the end of the assigment, how to get to use a database. One of the most valuable aspects of clean architecture, and especially of the use of repositories, is that the system becomes agnostic of persistence. What today is a call to 2 web service, can easily become a query to a BD without having to touch the rest of the code.
 
 # Technologies
 The API is written in NodeJS (v. 12.9.0), express (v. 4.17.1), awilix (v. 3.0.9)
