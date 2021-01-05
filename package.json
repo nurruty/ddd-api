@@ -20,7 +20,7 @@
   "dependencies": {
     "awilix": "^3.0.9",
     "awilix-express": "^0.11.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "body-parser": "^1.17.1",
     "compression": "^1.6.2",
     "cors": "^2.8.1",
