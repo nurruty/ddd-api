@@ -2,7 +2,7 @@
 
 Clone the project
 ```
-git clone https://github.com/nurruty/backend-end-assigment.git
+git clone https://github.com/nurruty/ddd-api.git
 ```
 Access the project's folder
 ```
