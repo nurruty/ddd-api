@@ -28,7 +28,7 @@
     "del": "^2.2.2",
     "dotenv": "^4.0.0",
     "eslint": "^4.7.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-status-monitor": "^0.1.9",
     "http-status": "^1.0.1",
     "https": "^1.0.0",
